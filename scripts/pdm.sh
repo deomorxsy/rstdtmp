@@ -4,6 +4,7 @@
 # source this file before running docker compose
 ####
 
+podman_compose() {
 # systemd creates the podman UNIX socket under /run/user/1000/podman/
 # that have a File Descriptor
 systemctl --user start podman.socket
@@ -20,3 +21,4 @@ curl -H "Content-Type: application/json" --unix-socket "$XDG_RUNTIME_DIR/podman/
 ####
 
 docker compose -f ./oci/container-compose.yml build
+}

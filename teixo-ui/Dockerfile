@@ -30,6 +30,5 @@ RUN set -eux; \
 
 WORKDIR /app
 
-RUN cargo install trunk --version 0.18.7
-RUN rustup target add wasm32-unknown-unknown
+
 
