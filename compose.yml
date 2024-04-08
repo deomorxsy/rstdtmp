@@ -4,9 +4,14 @@ services:
     #image: teixo_yew:01
     volumes:
       - type: bind
-        source: ../ # source is the source of the mount, a path on the host for a bind mount, or the name of a volume defined in the top-level volumes key. Not applicable for a tmpfs mount.
+        source: ./ # source is the source of the mount, a path on the host for a bind mount, or the name of a volume defined in the top-level volumes key. Not applicable for a tmpfs mount.
         target: /app # target is the container path where the volume is mounted
     build:
-      dockerfile: ./Dockerfile.teixo #./Dockerfile.yew
+      dockerfile: ./teixo-ui #./Dockerfile.yew
     command: bash -c "cd ./app/ && trunk serve"
+  backend:
+    build:
+      context: ./actix-api/
+    command: cargo run
+
 

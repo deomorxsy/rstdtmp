@@ -1,4 +1,9 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+mod configs;
+
+use actix_web::{get, post, web, App, HttpRequest, HttpResponse, HttpServer, Responder};
+use configs::cors::with_cors;
+use actix_files::NamedFile;
+use std::path::PathBuf;
 
 #[get("/")]
 async fn hello() -> impl Responder{
